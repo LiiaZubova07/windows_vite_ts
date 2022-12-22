@@ -14983,19 +14983,25 @@ __webpack_require__.r(__webpack_exports__);
 //first task
 //чтобы экспортировать код, который здесь есть
 var modals = function modals() {
-  function bindModal(triggerSelector, modalSelector, closeSelector) {
+  function bindModal(triggersSelector, modalSelector, closeSelector) {
     //на несколько одинаковых элементов повесить одни и те же функции
-    var trigger = document.querySelectorAll(triggerSelector),
-        modal = document.querySelector(modalSelector),
-        close = document.querySelector(closeSelector);
-    trigger.forEach(function (item) {
+    var triggers = document.querySelectorAll(triggersSelector);
+    var modal = document.querySelector(modalSelector);
+    var close = document.querySelector(closeSelector);
+
+    var closeModal = function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    };
+
+    triggers.forEach(function (item) {
       item.addEventListener('click', function (e) {
         if (e.target) {
           e.preventDefault();
         } //модальное окно показывается на странице
 
 
-        modal.style.display = "block"; //когда модальное окно открыто, то скролится только модальное окно
+        modal.style.display = 'block'; //когда модальное окно открыто, то скролится только модальное окно
 
         document.body.style.overflow = 'hidden'; //чтоб использовать класс
         // document.body.classList.add('modal-open');
@@ -15003,26 +15009,30 @@ var modals = function modals() {
     }); //модальное окно закрывается при нажатии на крестик
 
     close.addEventListener('click', function () {
-      modal.style.display = 'none';
-      document.body.style.overflow = ''; //чтоб использовать класс
+      closeModal(); //чтоб использовать класс
       // document.body.classList.remove('modal-open');
     }); //чтоб мод окно закрывалось при нажатии вне модального окна
 
     modal.addEventListener('click', function (e) {
       if (e.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; //чтоб использовать класс
+        closeModal(); //чтоб использовать класс
         // document.body.classList.remove('modal-open');
+      }
+    }); //модальное окно закрывается при нажатии на escape
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeModal();
       }
     });
   }
 
-  function showModalByTime(selector, time) {
+  var showModalByTime = function showModalByTime(selector, time) {
     setTimeout(function () {
       document.querySelector(selector).style.display = 'block';
       document.body.style.overflow = 'hidden';
     }, time);
-  } //   const callEngineerBtn = document.querySelector('.popup_engineer_btn'),
+  }; //   const callEngineerBtn = document.querySelector('.popup_engineer_btn'),
   //     //модальное окно
   //     modalEngineer = document.querySelector('.popup_engineer'),
   //     //крестик, который внутри модального окна
