@@ -1,4 +1,4 @@
-const tabs = (headerSelector, TabSelector, ContentSelector, activeClass) => {
+const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
   const headers = document.querySelector(headerSelector);
   const tabs = document.querySelectorAll(tabSelector);
   const contents = document.querySelectorAll(contentSelector);
