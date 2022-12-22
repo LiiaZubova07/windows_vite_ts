@@ -14994,8 +14994,8 @@ var modals = function modals() {
       document.body.style.overflow = '';
     };
 
-    triggers.forEach(function (item) {
-      item.addEventListener('click', function (e) {
+    triggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function (e) {
         if (e.target) {
           e.preventDefault();
         } //модальное окно показывается на странице

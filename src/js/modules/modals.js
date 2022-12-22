@@ -12,8 +12,8 @@ const modals = () => {
       document.body.style.overflow = '';
     };
 
-    triggers.forEach((item) => {
-      item.addEventListener('click', (e) => {
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
         if (e.target) {
           e.preventDefault();
         }
