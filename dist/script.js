@@ -14152,18 +14152,24 @@ var modals = function modals() {
 
 
       modal.style.display = 'block'; //когда модальное окно открыто, то скролится только модальное окно
+      // document.body.style.overflow = 'hidden';
+      //чтоб использовать класс
 
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('modal-open');
     });
     close.addEventListener('click', function () {
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
+      modal.style.display = 'none'; // document.body.style.overflow = '';
+      //чтоб использовать класс
+
+      document.body.classList.remove('modal-open');
     }); //чтоб мод окно закрывалось при нажатии вне модального окна
 
     modal.addEventListener('click', function (e) {
       if (e.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
+        modal.style.display = 'none'; //   document.body.style.overflow = '';
+        //чтоб использовать класс
+
+        document.body.classList.remove('modal-open');
       }
 
       ;
