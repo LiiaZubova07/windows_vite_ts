@@ -1,3 +1,7 @@
 import './slider';
+import modals from './modules/modals.js';
 
-console.log(1);
+//выполняется тогда, когда ДОМ-структура готова
+window.addEventListener('DOMContentLoaded', () => {
+  modals();
+});
