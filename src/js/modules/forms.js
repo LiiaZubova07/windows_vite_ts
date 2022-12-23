@@ -19,12 +19,14 @@ const forms = () => {
     return await res.text();
   };
 
+  //функция очищает все инпуты
   const clearInputs = () => {
     inputs.forEach((input) => {
       input.value = '';
     });
   };
 
+  //перебор форм
   forms.forEach((form) => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
