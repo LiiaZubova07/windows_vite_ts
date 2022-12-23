@@ -18,7 +18,7 @@ const forms = () => {
   //запрос на сервер
   const postData = async (url, data) => {
     document.querySelector('.status').textContent = message.loading;
-    let res = await fetch(url, {
+    const res = await fetch(url, {
       method: 'POST',
       body: data,
     });
@@ -39,7 +39,7 @@ const forms = () => {
       e.preventDefault();
 
       //форма для сообщений выше
-      let statusMessage = document.createElement('div');
+      const statusMessage = document.createElement('div');
       statusMessage.classList.add('status');
       form.appendChild(statusMessage);
 
