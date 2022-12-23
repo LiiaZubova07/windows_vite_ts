@@ -5,5 +5,8 @@ import forms from './modules/forms.js';
 
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
+	"use strict";
   modals();
+
+  forms();
 });
