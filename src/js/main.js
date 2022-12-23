@@ -3,9 +3,6 @@ import modals from './modules/modals.js';
 import tabs from './modules/tabs.js';
 import forms from './modules/forms.js';
 
-
-const tabsGlazing = ({ glazing_slider, glazing_block, glazing_content, active }) => {};
-
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
