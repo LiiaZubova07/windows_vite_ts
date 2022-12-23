@@ -16,7 +16,13 @@ const forms = () => {
       body: data,
     });
 
-	  return await res.text();
+    return await res.text();
+  };
+
+  const clearInputs = () => {
+    inputs.forEach((input) => {
+      input.value = '';
+    });
   };
 
   forms.forEach((form) => {
@@ -32,6 +38,18 @@ const forms = () => {
       const formData = new FormData(form);
 
       //formData отправляется на сервер
+      postData('assets/server.php', formData)
+        .then((res) => {
+          console.log(res);
+          statusMessage.textContent = message.succes;
+        })
+        .catch(() => (statusMessage.textContent = message.failure))
+        .finally(() => {
+          clearInputs();
+          setTimeout(() => {
+            statusMessage.remove();
+          }, 5000);
+        });
     });
   });
 };
