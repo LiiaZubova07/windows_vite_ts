@@ -1,5 +1,6 @@
 import './slider';
 import modals from './modules/modals.js';
+import tabs from './modules/tabs.js';
 
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
