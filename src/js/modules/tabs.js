@@ -43,7 +43,24 @@ const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass }) => 
     }
   });
 
-
+		header.addEventListener('keypress', (e) => {
+			const target = e.target;
+			//точно ли пользователь кликнул туда, куда надо
+			//регулярное выражение и то, на что меняем это выражение
+			//.class => class
+			if (
+			  target &&
+			  (target.classList.contains(tabSelector.replace(/\./, '')) ||
+				 target.parentNode.classList.contains(tabSelector.replace(/\./, '')))
+			) {
+			  tabs.forEach((tab, i) => {
+				 if (target == 'Enter' || target.parentNode == tab) {
+					hideTabContent();
+					showTabContent(i);
+				 }
+			  });
+			}
+		 });
   
 };
 
