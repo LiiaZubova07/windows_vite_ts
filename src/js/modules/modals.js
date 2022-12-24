@@ -1,7 +1,7 @@
 //first task
 //чтобы экспортировать код, который здесь есть
 const modals = () => {
-  function bindModal(triggersSelector, modalSelector, closeSelector) {
+  function bindModal({ triggersSelector, modalSelector, closeSelector }) {
     //на несколько одинаковых элементов повесить одни и те же функции
     const triggers = document.querySelectorAll(triggersSelector);
     const modal = document.querySelector(modalSelector);
@@ -63,14 +63,23 @@ const modals = () => {
   //     //крестик, который внутри модального окна
   //     modalEngineerClose = document.querySelector('.popup_engineer .popup_close');
 
-  bindModal(
-    '.popup_engineer_btn',
-    '.popup_engineer',
-    '.popup_engineer .popup_close'
-  );
+  bindModal({
+    triggersSelector: '.popup_engineer_btn',
+    modalSelector: '.popup_engineer',
+    closeSelector: '.popup_engineer .popup_close',
+  });
 
-  bindModal('.phone_link', '.popup', '.popup .popup_close');
-//   showModalByTime('.popup', 3000);
+  bindModal({
+    triggersSelector: '.phone_link',
+    modalSelector: '.popup',
+    closeSelector: '.popup .popup_close',
+  });
+  bindModal({
+    triggersSelector: '.popup_calc_btn',
+    modalSelector: '.popup_calc',
+    closeSelector: '.popup_calc_close',
+  });
+  //   showModalByTime('.popup', 3000);
 };
 
 export default modals;
