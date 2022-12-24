@@ -43,6 +43,7 @@ const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass }) => 
     }
   });
 
+  //чтоб по энтеру нажималась статья
 		header.addEventListener('keypress', (e) => {
 			const target = e.target;
 			//точно ли пользователь кликнул туда, куда надо
