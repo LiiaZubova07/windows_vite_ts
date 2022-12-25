@@ -27,6 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
     tabSelector: '.balcon_icons_img',
     contentSelector: '.big_img > img',
     activeClass: 'do_image_more',
+	 display: 'inline-block'
   });
 
   forms();

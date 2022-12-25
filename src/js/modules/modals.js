@@ -1,7 +1,7 @@
 //first task
 //чтобы экспортировать код, который здесь есть
 const modals = () => {
-  function bindModal({ triggersSelector, modalSelector, closeSelector }) {
+  function bindModal({ triggersSelector, modalSelector, closeSelector, closeClickOverlay = true}) {
     //на несколько одинаковых элементов повесить одни и те же функции
     const triggers = document.querySelectorAll(triggersSelector);
     const modal = document.querySelector(modalSelector);
