@@ -1,4 +1,4 @@
-const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass }) => {
+const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass, display = 'block'}) => {
   const header = document.querySelector(headerSelector);
   const tabs = document.querySelectorAll(tabSelector);
   const contents = document.querySelectorAll(contentSelector);
@@ -16,7 +16,7 @@ const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass }) => 
 
   //отследит на какой по счёту таб нажал пользователь
   const showTabContent = (i = 0) => {
-    contents[i].style.display = 'block';
+    contents[i].style.display = display;
     tabs[i].classList.add(activeClass);
   };
 
