@@ -44,7 +44,7 @@ const modals = () => {
 
     //чтоб мод окно закрывалось при нажатии вне модального окна
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
+      if (e.target === modal && closeClickOverlay) {
         windows.forEach((window) => {
           window.style.display = 'none';
         });
@@ -94,6 +94,19 @@ const modals = () => {
     closeSelector: '.popup_calc_close',
   });
   //   showModalByTime('.popup', 3000);
+
+  bindModal({
+    triggersSelector: '.popup_calc_button',
+    modalSelector: '.popup_calc_profile',
+    closeSelector: '.popup_calc_profile_close',
+    closeClickOverlay: false,
+  });
+  bindModal({
+    triggersSelector: '.popup_calc_profile_button',
+    modalSelector: '.popup_calc_end',
+    closeSelector: '.popup_calc_end_close',
+    closeClickOverlay: false,
+  });
 };
 
 export default modals;
