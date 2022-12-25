@@ -1,11 +1,12 @@
 //first task
 //чтобы экспортировать код, который здесь есть
 const modals = () => {
-  function bindModal(triggersSelector, modalSelector, closeSelector) {
+  function bindModal({ triggersSelector, modalSelector, closeSelector, closeClickOverlay = true}) {
     //на несколько одинаковых элементов повесить одни и те же функции
     const triggers = document.querySelectorAll(triggersSelector);
     const modal = document.querySelector(modalSelector);
     const close = document.querySelector(closeSelector);
+    const windows = document.querySelectorAll('[data-modal]');
 
     const closeModal = () => {
       modal.style.display = 'none';
@@ -17,6 +18,10 @@ const modals = () => {
         if (e.target) {
           e.preventDefault();
         }
+
+        windows.forEach((window) => {
+          window.style.display = 'none';
+        });
         //модальное окно показывается на странице
         modal.style.display = 'block';
         //когда модальное окно открыто, то скролится только модальное окно
@@ -28,15 +33,21 @@ const modals = () => {
 
     //модальное окно закрывается при нажатии на крестик
     close.addEventListener('click', () => {
-      closeModal();
+      windows.forEach((window) => {
+        window.style.display = 'none';
+      });
+		closeModal();
       //чтоб использовать класс
       // document.body.classList.remove('modal-open');
     });
 
     //чтоб мод окно закрывалось при нажатии вне модального окна
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal();
+      if (e.target === modal && closeClickOverlay) {
+        windows.forEach((window) => {
+          window.style.display = 'none';
+        });
+		  closeModal();
         //чтоб использовать класс
         // document.body.classList.remove('modal-open');
       }
@@ -45,7 +56,7 @@ const modals = () => {
     //модальное окно закрывается при нажатии на escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        closeModal();
+			closeModal();
       }
     });
   }
@@ -63,14 +74,36 @@ const modals = () => {
   //     //крестик, который внутри модального окна
   //     modalEngineerClose = document.querySelector('.popup_engineer .popup_close');
 
-  bindModal(
-    '.popup_engineer_btn',
-    '.popup_engineer',
-    '.popup_engineer .popup_close'
-  );
+  bindModal({
+    triggersSelector: '.popup_engineer_btn',
+    modalSelector: '.popup_engineer',
+    closeSelector: '.popup_engineer .popup_close',
+  });
 
-  bindModal('.phone_link', '.popup', '.popup .popup_close');
-//   showModalByTime('.popup', 3000);
+  bindModal({
+    triggersSelector: '.phone_link',
+    modalSelector: '.popup',
+    closeSelector: '.popup .popup_close',
+  });
+  bindModal({
+    triggersSelector: '.popup_calc_btn',
+    modalSelector: '.popup_calc',
+    closeSelector: '.popup_calc_close',
+  });
+  //   showModalByTime('.popup', 3000);
+
+  bindModal({
+    triggersSelector: '.popup_calc_button',
+    modalSelector: '.popup_calc_profile',
+    closeSelector: '.popup_calc_profile_close',
+    closeClickOverlay: false,
+  });
+  bindModal({
+    triggersSelector: '.popup_calc_profile_button',
+    modalSelector: '.popup_calc_end',
+    closeSelector: '.popup_calc_end_close',
+    closeClickOverlay: false,
+  });
 };
 
 export default modals;
