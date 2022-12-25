@@ -1,7 +1,7 @@
 //first task
 //чтобы экспортировать код, который здесь есть
 const modals = () => {
-  function bindModal({ triggersSelector, modalSelector, closeSelector, closeClickOverlay = true}) {
+  function bindModal({ triggersSelector, modalSelector, closeSelector, closeClickOverlay = true }) {
     //на несколько одинаковых элементов повесить одни и те же функции
     const triggers = document.querySelectorAll(triggersSelector);
     const modal = document.querySelector(modalSelector);
@@ -36,8 +36,7 @@ const modals = () => {
       windows.forEach((window) => {
         window.style.display = 'none';
       });
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
+      closeModal();
       //чтоб использовать класс
       // document.body.classList.remove('modal-open');
     });
@@ -48,8 +47,7 @@ const modals = () => {
         windows.forEach((window) => {
           window.style.display = 'none';
         });
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
+        closeModal();
         //чтоб использовать класс
         // document.body.classList.remove('modal-open');
       }
@@ -58,8 +56,7 @@ const modals = () => {
     //модальное окно закрывается при нажатии на escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
+        closeModal();
       }
     });
   }
