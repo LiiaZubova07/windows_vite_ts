@@ -1,7 +1,11 @@
 //first task
 //чтобы экспортировать код, который здесь есть
 const modals = () => {
+<<<<<<< HEAD
   function bindModal({ triggersSelector, modalSelector, closeSelector, closeClickOverlay = true }) {
+=======
+  function bindModal({ triggersSelector, modalSelector, closeSelector, closeClickOverlay = true}) {
+>>>>>>> 73f5cf5b836e46ede5848fe80b65839fd559411c
     //на несколько одинаковых элементов повесить одни и те же функции
     const triggers = document.querySelectorAll(triggersSelector);
     const modal = document.querySelector(modalSelector);
@@ -36,7 +40,11 @@ const modals = () => {
       windows.forEach((window) => {
         window.style.display = 'none';
       });
+<<<<<<< HEAD
       closeModal();
+=======
+		closeModal();
+>>>>>>> 73f5cf5b836e46ede5848fe80b65839fd559411c
       //чтоб использовать класс
       // document.body.classList.remove('modal-open');
     });
@@ -47,7 +55,11 @@ const modals = () => {
         windows.forEach((window) => {
           window.style.display = 'none';
         });
+<<<<<<< HEAD
         closeModal();
+=======
+		  closeModal();
+>>>>>>> 73f5cf5b836e46ede5848fe80b65839fd559411c
         //чтоб использовать класс
         // document.body.classList.remove('modal-open');
       }
@@ -56,7 +68,7 @@ const modals = () => {
     //модальное окно закрывается при нажатии на escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        closeModal();
+			closeModal();
       }
     });
   }
@@ -98,6 +110,7 @@ const modals = () => {
     closeSelector: '.popup_calc_profile_close',
     closeClickOverlay: false,
   });
+  
   bindModal({
     triggersSelector: '.popup_calc_profile_button',
     modalSelector: '.popup_calc_end',
