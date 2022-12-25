@@ -6,6 +6,7 @@ const modals = () => {
     const triggers = document.querySelectorAll(triggersSelector);
     const modal = document.querySelector(modalSelector);
     const close = document.querySelector(closeSelector);
+    const windows = document.querySelectorAll('[data-modal]');
 
     const closeModal = () => {
       modal.style.display = 'none';
@@ -17,6 +18,10 @@ const modals = () => {
         if (e.target) {
           e.preventDefault();
         }
+
+        windows.forEach((window) => {
+          window.style.display = 'none';
+        });
         //модальное окно показывается на странице
         modal.style.display = 'block';
         //когда модальное окно открыто, то скролится только модальное окно
@@ -28,7 +33,11 @@ const modals = () => {
 
     //модальное окно закрывается при нажатии на крестик
     close.addEventListener('click', () => {
-      closeModal();
+      windows.forEach((window) => {
+        window.style.display = 'none';
+      });
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
       //чтоб использовать класс
       // document.body.classList.remove('modal-open');
     });
@@ -36,7 +45,11 @@ const modals = () => {
     //чтоб мод окно закрывалось при нажатии вне модального окна
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
-        closeModal();
+        windows.forEach((window) => {
+          window.style.display = 'none';
+        });
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
         //чтоб использовать класс
         // document.body.classList.remove('modal-open');
       }
@@ -45,7 +58,8 @@ const modals = () => {
     //модальное окно закрывается при нажатии на escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        closeModal();
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
       }
     });
   }
