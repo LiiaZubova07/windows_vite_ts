@@ -98,6 +98,7 @@ const modals = () => {
     closeSelector: '.popup_calc_profile_close',
     closeClickOverlay: false,
   });
+  
   bindModal({
     triggersSelector: '.popup_calc_profile_button',
     modalSelector: '.popup_calc_end',
