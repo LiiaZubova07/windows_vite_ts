@@ -2,9 +2,9 @@ import checkNumInputs from './checkNumInputs';
 
 const changeModalState = () => {
   const windowForms = document.querySelectorAll('.balcon_icons_img');
-  const windowWidths = document.querySelector('#width');
-  const windowHeights = document.querySelector('#height');
-  const windowTypes = document.querySelector('#view_type');
+  const windowWidths = document.querySelectorAll('#width');
+  const windowHeights = document.querySelectorAll('#height');
+  const windowTypes = document.querySelectorAll('#view_type');
   const windowProfiles = document.querySelectorAll('.checkbox');
 
   checkNumInputs('#width');
@@ -14,12 +14,19 @@ const changeModalState = () => {
     //когда кликаем на изображение, будет подписана форма, которую выбрал пользователь
     elems.forEach((elem, i) => {
       elem.addEventListener(event, () => {
-        state[prop] = i;
+        if (elems.length > 1) {
+          state[prop];
+        } else {
+          state[prop] = elem.value;
+        }
+        console.log(state);
       });
     });
   };
 
   bindActionToElems('click', windowForms, 'form');
+  bindActionToElems('input', windowHeights, 'height');
+  bindActionToElems('input', windowWidths, 'width');
 };
 
 export default changeModalState;
