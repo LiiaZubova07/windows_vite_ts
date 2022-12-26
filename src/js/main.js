@@ -10,7 +10,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const modalState = {};
 
-  changeModalState();
+  changeModalState(modalState);
+
   modals();
 
   tabs({
@@ -35,5 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	 display: 'inline-block'
   });
 
-  forms();
+  forms(modalState);
+
+
 });
