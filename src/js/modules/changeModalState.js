@@ -10,16 +10,27 @@ const changeModalState = () => {
   checkNumInputs('#width');
   checkNumInputs('#height');
 
+
+  //в какой элемент кликнул пользователь
   const bindActionToElems = (event, elems, prop) => {
     //когда кликаем на изображение, будет подписана форма, которую выбрал пользователь
     elems.forEach((elem, i) => {
       elem.addEventListener(event, () => {
-        if (elems.length > 1) {
-          state[prop];
-        } else {
-          state[prop] = elem.value;
+        switch (elem.nodeName) {
+          case 'SPAN':
+            console.log('span');
+            break;
+          case 'INPUT':
+            if (elem.getAttribute('type') === 'checkbox') {
+              console.log('checkbox');
+            } else {
+              console.log('input');
+            }
+            break;
+          case 'SELECT':
+            console.log('select');
+            break;
         }
-        console.log(state);
       });
     });
   };
@@ -29,7 +40,6 @@ const changeModalState = () => {
   bindActionToElems('input', windowWidths, 'width');
   bindActionToElems('change', windowTypes, 'type');
   bindActionToElems('change', windowProfiles, 'profile');
-
 };
 
 export default changeModalState;
