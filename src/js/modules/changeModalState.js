@@ -5,7 +5,7 @@ const changeModalState = (state) => {
   const windowWidths = document.querySelectorAll('#width');
   const windowHeights = document.querySelectorAll('#height');
   const windowTypes = document.querySelectorAll('#view_type');
-  const windowProfiles = document.querySelectorAll('.radio');
+  const windowProfiles = document.querySelectorAll('.radioBtn');
 
   checkNumInputs('#width');
   checkNumInputs('#height');
