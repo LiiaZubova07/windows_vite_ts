@@ -13,6 +13,11 @@ const modals = () => {
       document.body.style.overflow = '';
     };
 
+    //  const showModal = () => {
+    //    const modal = document.querySelector('#modal');
+    //    modal.focus();
+    //  };
+
     triggers.forEach((item) => {
       item.addEventListener('click', (e) => {
         if (e.target) {
@@ -28,6 +33,8 @@ const modals = () => {
         document.body.style.overflow = 'hidden';
         //чтоб использовать класс
         // document.body.classList.add('modal-open');
+        const input = modal.querySelector('input');
+        if (input) input.focus();
       });
     });
 
@@ -56,7 +63,7 @@ const modals = () => {
     //модальное окно закрывается при нажатии на escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-			closeModal();
+        closeModal();
       }
     });
   }
@@ -92,7 +99,7 @@ const modals = () => {
     closeSelector: '.popup_calc_profile_close',
     closeClickOverlay: false,
   });
-  
+
   bindModal({
     triggersSelector: '.popup_calc_profile_button',
     modalSelector: '.popup_calc_end',
