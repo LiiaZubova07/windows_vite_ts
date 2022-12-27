@@ -68,12 +68,6 @@ const modals = () => {
     }, time);
   };
 
-  //   const callEngineerBtn = document.querySelector('.popup_engineer_btn'),
-  //     //модальное окно
-  //     modalEngineer = document.querySelector('.popup_engineer'),
-  //     //крестик, который внутри модального окна
-  //     modalEngineerClose = document.querySelector('.popup_engineer .popup_close');
-
   bindModal({
     triggersSelector: '.popup_engineer_btn',
     modalSelector: '.popup_engineer',

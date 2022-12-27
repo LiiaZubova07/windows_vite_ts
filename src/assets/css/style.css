@@ -27,8 +27,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
   outline: 2px solid black;
-  
-  }
+    }
 
 .no-padding {
   padding: 0 !important;
