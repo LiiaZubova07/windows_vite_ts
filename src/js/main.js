@@ -4,6 +4,7 @@ import tabs from './modules/tabs.js';
 import forms from './modules/forms.js';
 import changeModalState from './modules/changeModalState.js';
 import timer from './modules/timer.js';
+import images from './modules/images.js';
 
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
@@ -32,4 +33,6 @@ window.addEventListener('DOMContentLoaded', () => {
   forms(modalState);
 
   timer('.container1', deadline);
+
+  images();
 });
