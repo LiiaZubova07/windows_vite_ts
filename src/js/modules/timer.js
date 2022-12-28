@@ -1,31 +1,26 @@
 const timer = (id, deadline) => {
   //подставляем ноль спереди
-  const addZero = (num) => {
-    if (num <= 9) {
-      return '0' + num;
-    } else {
-      return num;
-    }
-  };
-  const getTimeRemaining = (endTime) => {
+  const addZero = (num) => (num <= 9 ? '0${num}' : num);
+
+  const getTimeRemaining = (endtime) => {
     //разница между двумя временнфми промежутками
-    const t = Date.parse(endTime) - Date.parse(new Date());
+    const t = Date.parse(endtime) - Date.parse(new Date());
     //кол-во минут внутри t вернётся хвостик, который будет уменьшатся на секунду
     const seconds = Math.floor((t / 1000) % 60);
     const minutes = Math.floor((t / 1000 / 60) % 60);
     const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    const days = Math.floor((t / (1000 * 60 * 60 * 24)));
+    const days = Math.floor(t / (1000 * 60 * 60 * 24));
 
     return {
-      'total': t,
-      'days': days,
-      'hours': hours,
-      'minutes': minutes,
-      'seconds': seconds
+      total: t,
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds,
     };
   };
 
-  const setClock = (selector, endTime) => {
+  const setClock = (selector, endtime) => {
     const timer = document.querySelector(selector);
 
     const days = timer.querySelector('#days');
@@ -35,9 +30,11 @@ const timer = (id, deadline) => {
     //чтоб остановить таймер
     const timeInterval = setInterval(updateClock, 1000);
 
+    //  updateClock();
+
     const updateClock = () => {
       //определяет сколько времени до дедлайна, возвращает объект
-      const t = getTimeRemaining(endTime);
+      const t = getTimeRemaining(endtime);
       //значение из getTimeRemaining
       days.textContent = addZero(t.days);
       hours.textContent = addZero(t.hours);
