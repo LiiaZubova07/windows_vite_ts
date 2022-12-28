@@ -1,6 +1,6 @@
 const timer = (id, deadline) => {
   //подставляем ноль спереди
-  const addZero = (num) => (num <= 9 ? '0${num}' : num);
+  const addZero = (num) => (num <= 9) ? `0${num}` : num;
 
   const getTimeRemaining = (endtime) => {
     //разница между двумя временнфми промежутками
@@ -30,9 +30,9 @@ const timer = (id, deadline) => {
     //чтоб остановить таймер
     const timeInterval = setInterval(updateClock, 1000);
 
-    //  updateClock();
+     updateClock();
 
-    const updateClock = () => {
+    function updateClock() {
       //определяет сколько времени до дедлайна, возвращает объект
       const t = getTimeRemaining(endtime);
       //значение из getTimeRemaining
