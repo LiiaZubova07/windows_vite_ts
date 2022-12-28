@@ -13,10 +13,11 @@ const modals = () => {
       document.body.style.overflow = '';
     };
 
-    //  const showModal = () => {
-    //    const modal = document.querySelector('#modal');
-    //    modal.focus();
-    //  };
+    //---------------------------------------------
+
+
+	 
+    //---------------------------------------------
 
     triggers.forEach((item) => {
       item.addEventListener('click', (e) => {
