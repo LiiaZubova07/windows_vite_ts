@@ -22,7 +22,6 @@ const changeModalState = (state) => {
           case 'INPUT':
             state[prop] = elem.value;
             break;
-
           case 'SELECT':
             state[prop] = elem.value;
             break;
