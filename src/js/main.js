@@ -3,14 +3,16 @@ import modals from './modules/modals.js';
 import tabs from './modules/tabs.js';
 import forms from './modules/forms.js';
 import changeModalState from './modules/changeModalState.js';
+import timer from './modules/timer.js';
 
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   const modalState = {};
+  const deadline = '2023-02-01';
 
-  changeModalState();
+  changeModalState(modalState);
   modals();
 
   tabs({
@@ -27,5 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
     activeClass: 'after_click',
   });
 
-  forms();
+  forms(modalState);
+
+  timer('.container1', deadline);
 });
