@@ -1,7 +1,7 @@
 //first task
 //чтобы экспортировать код, который здесь есть
 const modals = () => {
-  function bindModal({ triggersSelector, modalSelector, closeSelector, closeClickOverlay = true}) {
+  function bindModal({ triggersSelector, modalSelector, closeSelector, closeClickOverlay = true }) {
     //на несколько одинаковых элементов повесить одни и те же функции
     const triggers = document.querySelectorAll(triggersSelector);
     const modal = document.querySelector(modalSelector);
@@ -12,6 +12,12 @@ const modals = () => {
       modal.style.display = 'none';
       document.body.style.overflow = '';
     };
+
+    //---------------------------------------------
+
+
+	 
+    //---------------------------------------------
 
     triggers.forEach((item) => {
       item.addEventListener('click', (e) => {
@@ -28,6 +34,8 @@ const modals = () => {
         document.body.style.overflow = 'hidden';
         //чтоб использовать класс
         // document.body.classList.add('modal-open');
+        const input = modal.querySelector('input');
+        if (input) input.focus();
       });
     });
 
@@ -36,7 +44,7 @@ const modals = () => {
       windows.forEach((window) => {
         window.style.display = 'none';
       });
-		closeModal();
+      closeModal();
       //чтоб использовать класс
       // document.body.classList.remove('modal-open');
     });
@@ -47,7 +55,7 @@ const modals = () => {
         windows.forEach((window) => {
           window.style.display = 'none';
         });
-		  closeModal();
+        closeModal();
         //чтоб использовать класс
         // document.body.classList.remove('modal-open');
       }
@@ -56,7 +64,7 @@ const modals = () => {
     //модальное окно закрывается при нажатии на escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-			closeModal();
+        closeModal();
       }
     });
   }
@@ -67,12 +75,6 @@ const modals = () => {
       document.body.style.overflow = 'hidden';
     }, time);
   };
-
-  //   const callEngineerBtn = document.querySelector('.popup_engineer_btn'),
-  //     //модальное окно
-  //     modalEngineer = document.querySelector('.popup_engineer'),
-  //     //крестик, который внутри модального окна
-  //     modalEngineerClose = document.querySelector('.popup_engineer .popup_close');
 
   bindModal({
     triggersSelector: '.popup_engineer_btn',
@@ -98,7 +100,7 @@ const modals = () => {
     closeSelector: '.popup_calc_profile_close',
     closeClickOverlay: false,
   });
-  
+
   bindModal({
     triggersSelector: '.popup_calc_profile_button',
     modalSelector: '.popup_calc_end',

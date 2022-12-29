@@ -1,4 +1,4 @@
-const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass }) => {
+const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass, display = 'block' }) => {
   const header = document.querySelector(headerSelector);
   const tabs = document.querySelectorAll(tabSelector);
   const contents = document.querySelectorAll(contentSelector);
@@ -16,15 +16,11 @@ const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass }) => 
 
   //отследит на какой по счёту таб нажал пользователь
   const showTabContent = (i = 0) => {
-    contents[i].style.display = 'block';
+    contents[i].style.display = display;
     tabs[i].classList.add(activeClass);
   };
 
-  hideTabContent();
-  showTabContent();
-
-  //отследить какой таб кликнул пользователь
-  header.addEventListener('click', (e) => {
+  const handleAction = (e) => {
     const target = e.target;
     //точно ли пользователь кликнул туда, куда надо
     //регулярное выражение и то, на что меняем это выражение
@@ -41,28 +37,22 @@ const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass }) => 
         }
       });
     }
+  };
+
+  hideTabContent();
+  showTabContent();
+
+  //отследить какой таб кликнул пользователь
+  header.addEventListener('click', (e) => {
+	handleAction(e);
   });
 
   //чтоб по энтеру нажималась статья
-		header.addEventListener('keypress', (e) => {
-			const target = e.target;
-			//точно ли пользователь кликнул туда, куда надо
-			//регулярное выражение и то, на что меняем это выражение
-			//.class => class
-			if (
-			  target &&
-			  (target.classList.contains(tabSelector.replace(/\./, '')) ||
-				 target.parentNode.classList.contains(tabSelector.replace(/\./, '')))
-			) {
-			  tabs.forEach((tab, i) => {
-				 if (target == 'Enter' || target.parentNode == tab) {
-					hideTabContent();
-					showTabContent(i);
-				 }
-			  });
-			}
-		 });
-  
+  header.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      handleAction(e);
+    }
+  });
 };
 
 export default tabs;
