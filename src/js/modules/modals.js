@@ -14,14 +14,13 @@ const modals = () => {
     };
 
     //---------------------------------------------
-	 
-    //---------------------------------------------
 
     triggers.forEach((item) => {
       item.addEventListener('click', (e) => {
         if (e.target) {
           e.preventDefault();
         }
+
 
         windows.forEach((window) => {
           window.style.display = 'none';
