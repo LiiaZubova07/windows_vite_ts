@@ -43,7 +43,7 @@ const modals = () => {
         window.style.display = 'none';
       });
       closeModal();
-      document.body.style.marginRight = `0px`;
+      document.body.style.marginRight = `0`;
       //чтоб использовать класс
       // document.body.classList.remove('modal-open');
     });
