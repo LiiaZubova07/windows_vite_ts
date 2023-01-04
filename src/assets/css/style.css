@@ -18,6 +18,22 @@ body {
 	color: red;
 }
 
+.faded {
+	animation-name: faded;
+	animation-duration: 1.5s;
+}
+
+@keyframes faded {
+	from {
+		opacity: 0.1;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+
 a:hover {
 	text-decoration: none;
 }
@@ -1023,7 +1039,12 @@ textarea:focus-visible {
 }
 
 .popup_calc_profile_content .checkbox {
-	display: none;
+	/* display: none; */
+	opacity: 0;
+}
+
+.popup_calc_profile_content .checkbox:focus+.checkbox-custom  {
+outline: 1px solid red;
 }
 
 .popup_calc_profile_content .checkbox-custom {
