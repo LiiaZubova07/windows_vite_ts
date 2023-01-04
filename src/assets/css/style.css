@@ -1020,7 +1020,6 @@ textarea:focus-visible {
 
 .popup_calc_profile_content select {
 	margin-bottom: 1rem;
-	outline: none;
 }
 
 .popup_calc_profile_content .checkbox {
@@ -1784,7 +1783,7 @@ textarea:focus-visible {
 
 	.popup_calc_profile_content select {
 		margin-bottom: 1rem;
-		outline: none;
+
 	}
 
 	.popup_calc_profile_content img {
