@@ -23,7 +23,7 @@ const modals = () => {
         }
 
         windows.forEach((window) => {
-          window.style.display = 'none';
+          window.style.display = 'none';    
         });
         //модальное окно показывается на странице
         modal.style.display = 'block';
