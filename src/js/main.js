@@ -1,8 +1,8 @@
-import './slider.js';
-import modals from './modules/modals.js';
-import tabs from './modules/tabs.js';
-import forms from './modules/forms.js';
-import changeModalState from './modules/changeModalState.js';
+import '/src/js/slider.js';
+import modals from '/src/js/modules/modals.js';
+import tabs from '/src/js/modules/tabs.js';
+import forms from '/src/js/modules/forms.js';
+import changeModalState from '/src/js/modules/changeModalState.js';
 
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
