@@ -1,6 +1,7 @@
 import './modules/slider';
 import modals from './modules/modals';
 import tabs from './modules/tabs';
+import images from './modules/images';
 // import forms from '/modules/forms.js';
 // import changeModalState from './modules/changeModalState.js';
 
@@ -40,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 //   timer('.container1', deadline);
 
-//   images();
+  images();
 
 });
 
