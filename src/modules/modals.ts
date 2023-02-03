@@ -1,12 +1,24 @@
 //first task
 //чтобы экспортировать код, который здесь есть
+interface IBindModals {
+  triggersSelector: string;
+  modalSelector: string;
+  closeSelector: string;
+  closeClickOverlay?: boolean;
+}
+
 const modals = () => {
-  function bindModal({ triggersSelector, modalSelector, closeSelector, closeClickOverlay = true }) {
+  function bindModal({
+    triggersSelector,
+    modalSelector,
+    closeSelector,
+    closeClickOverlay = true,
+  }: IBindModals) {
     //на несколько одинаковых элементов повесить одни и те же функции
     const triggers = document.querySelectorAll(triggersSelector);
-    const modal = document.querySelector(modalSelector);
-    const close = document.querySelector(closeSelector);
-    const windows = document.querySelectorAll('[data-modal]');
+    const modal: HTMLElement = document.querySelector(modalSelector) as HTMLElement;
+    const close: HTMLElement = document.querySelector(closeSelector) as HTMLElement;
+    const windows: NodeListOf<HTMLElement> = document.querySelectorAll('[data-modal]') as NodeListOf<HTMLElement>;
     const scroll = calcScroll();
 
     const closeModal = () => {
@@ -22,8 +34,8 @@ const modals = () => {
           e.preventDefault();
         }
 
-        windows.forEach((window) => {
-          window.style.display = 'none';    
+        windows.forEach((window: HTMLElement) => {
+          window.style.display = 'none';
         });
         //модальное окно показывается на странице
         modal.style.display = 'block';
@@ -70,9 +82,9 @@ const modals = () => {
     });
   }
 
-  const showModalByTime = (selector, time) => {
+  const showModalByTime = (selector:string, time:number) => {
     setTimeout(() => {
-      document.querySelector(selector).style.display = 'block';
+      (document.querySelector(selector) as HTMLElement).style.display = 'block';
       document.body.style.overflow = 'hidden';
     }, time);
   };
