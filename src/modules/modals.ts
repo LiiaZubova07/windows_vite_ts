@@ -82,12 +82,12 @@ const modals = () => {
     });
   }
 
-  const showModalByTime = (selector:string, time:number) => {
-    setTimeout(() => {
-      (document.querySelector(selector) as HTMLElement).style.display = 'block';
-      document.body.style.overflow = 'hidden';
-    }, time);
-  };
+//   const showModalByTime = (selector:string, time:number) => {
+//     setTimeout(() => {
+//       (document.querySelector(selector) as HTMLElement).style.display = 'block';
+//       document.body.style.overflow = 'hidden';
+//     }, time);
+//   };
 
   function calcScroll() {
     const div = document.createElement('div');

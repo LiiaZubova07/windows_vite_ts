@@ -8,8 +8,8 @@ import modals from './modules/modals';
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  const modalState = {};
-  const deadline = '2023-02-01';
+//   const modalState = {};
+//   const deadline = '2023-02-01';
 
 //   changeModalState(modalState);
   modals();
