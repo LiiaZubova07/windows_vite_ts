@@ -1,18 +1,8 @@
-<<<<<<< HEAD
-import './slider.js';
+import '/src/js/slider.js';
 import modals from './modules/modals.js';
 import tabs from './modules/tabs.js';
 import forms from './modules/forms.js';
 import changeModalState from './modules/changeModalState.js';
-import timer from './modules/timer.js';
-import images from './modules/images.js';
-=======
-import '/src/js/slider.js';
-import modals from '/src/js/modules/modals.js';
-import tabs from '/src/js/modules/tabs.js';
-import forms from '/src/js/modules/forms.js';
-import changeModalState from '/src/js/modules/changeModalState.js';
->>>>>>> a0ab1dc6c356f9e89ec46853efd0c49452886e0c
 
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
