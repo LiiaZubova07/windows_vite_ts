@@ -1,7 +1,21 @@
-const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass, display = 'block' }) => {
-  const header = document.querySelector(headerSelector);
-  const tabs = document.querySelectorAll(tabSelector);
-  const contents = document.querySelectorAll(contentSelector);
+interface ITabs {
+  headerSelector: string;
+  tabSelector: string;
+  contentSelector: string;
+  activeClass: string;
+  display?: string;
+}
+
+const tabs = ({
+  headerSelector,
+  tabSelector,
+  contentSelector,
+  activeClass,
+  display = 'block',
+}: ITabs) => {
+  const header: HTMLElement = document.querySelector(headerSelector) as HTMLElement;
+  const tabs: NodeListOf<HTMLElement> = document.querySelectorAll(tabSelector) as NodeListOf<HTMLElement>;
+  const contents: NodeListOf<HTMLElement> = document.querySelectorAll(contentSelector) as NodeListOf<HTMLElement>;
 
   const hideTabContent = () => {
     contents.forEach((content) => {
@@ -20,7 +34,7 @@ const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass, displ
     tabs[i].classList.add(activeClass);
   };
 
-  const handleAction = (e) => {
+  const handleAction = (e:any) => {
     const target = e.target;
     //точно ли пользователь кликнул туда, куда надо
     //регулярное выражение и то, на что меняем это выражение
@@ -44,7 +58,7 @@ const tabs = ({ headerSelector, tabSelector, contentSelector, activeClass, displ
 
   //отследить какой таб кликнул пользователь
   header.addEventListener('click', (e) => {
-	handleAction(e);
+    handleAction(e);
   });
 
   //чтоб по энтеру нажималась статья
