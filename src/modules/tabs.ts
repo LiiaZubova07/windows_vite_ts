@@ -38,15 +38,15 @@ const tabs = ({
     tabs[i].classList.add(activeClass);
   };
 
-  const handleAction = (e:Event) => {
-    const target = e.target;
+  const handleAction = (e: Event) => {
+    const target: HTMLElement = e.target as HTMLElement;
     //точно ли пользователь кликнул туда, куда надо
     //регулярное выражение и то, на что меняем это выражение
     //.class => class
     if (
       target &&
       (target.classList.contains(tabSelector.replace(/\./, '')) ||
-        target.parentNode.classList.contains(tabSelector.replace(/\./, '')))
+		(target.parentNode as HTMLElement).classList.contains(tabSelector.replace(/\./, '')))
     ) {
       tabs.forEach((tab, i) => {
         if (target == tab || target.parentNode == tab) {
