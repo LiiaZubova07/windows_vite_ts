@@ -14,8 +14,12 @@ const tabs = ({
   display = 'block',
 }: ITabs) => {
   const header: HTMLElement = document.querySelector(headerSelector) as HTMLElement;
-  const tabs: NodeListOf<HTMLElement> = document.querySelectorAll(tabSelector) as NodeListOf<HTMLElement>;
-  const contents: NodeListOf<HTMLElement> = document.querySelectorAll(contentSelector) as NodeListOf<HTMLElement>;
+  const tabs: NodeListOf<HTMLElement> = document.querySelectorAll(
+    tabSelector
+  ) as NodeListOf<HTMLElement>;
+  const contents: NodeListOf<HTMLElement> = document.querySelectorAll(
+    contentSelector
+  ) as NodeListOf<HTMLElement>;
 
   const hideTabContent = () => {
     contents.forEach((content) => {
@@ -34,7 +38,7 @@ const tabs = ({
     tabs[i].classList.add(activeClass);
   };
 
-  const handleAction = (e:any) => {
+  const handleAction = (e:Event) => {
     const target = e.target;
     //точно ли пользователь кликнул туда, куда надо
     //регулярное выражение и то, на что меняем это выражение
