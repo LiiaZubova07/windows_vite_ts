@@ -17,13 +17,13 @@ const images = () => {
   imgPopup.appendChild(bigImage);
 
   //обработчик событий на всю секцию
-  workSection.addEventListener('click', (e:Event) => {
+  workSection.addEventListener('click', (e: Event) => {
     e.preventDefault();
 
-    const target:HTMLElement = e.target as HTMLElement;
+    const target: HTMLElement = e.target as HTMLElement;
     if (target && target.classList.contains('preview')) {
       imgPopup.style.display = 'flex';
-      const path:string = (target.parentNode as HTMLElement).getAttribute('href') as string;
+      const path: string = (target.parentNode as HTMLElement).getAttribute('href') as string;
       bigImage.setAttribute('src', path);
     }
 
