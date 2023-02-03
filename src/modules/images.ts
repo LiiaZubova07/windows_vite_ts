@@ -1,8 +1,8 @@
 const images = () => {
   //модальное окно
-  const imgPopup = document.createElement('div');
-  const workSection = document.querySelector('.works');
-  const bigImage = document.createElement('img');
+  const imgPopup: HTMLElement = document.createElement('div') as HTMLElement;
+  const workSection: HTMLElement = document.querySelector('.works') as HTMLElement;
+  const bigImage: HTMLElement = document.createElement('img') as HTMLElement;
 
   imgPopup.classList.add('popup');
   //чтоб окно появилось на странице
@@ -17,13 +17,13 @@ const images = () => {
   imgPopup.appendChild(bigImage);
 
   //обработчик событий на всю секцию
-  workSection.addEventListener('click', (e) => {
+  workSection.addEventListener('click', (e:Event) => {
     e.preventDefault();
 
-    const target = e.target;
+    const target:HTMLElement = e.target as HTMLElement;
     if (target && target.classList.contains('preview')) {
       imgPopup.style.display = 'flex';
-      const path = target.parentNode.getAttribute('href');
+      const path:string = (target.parentNode as HTMLElement).getAttribute('href') as string;
       bigImage.setAttribute('src', path);
     }
 
