@@ -4,6 +4,7 @@ import tabs from './modules/tabs';
 import images from './modules/images';
 import forms from './modules/forms';
 import changeModalState from './modules/changeModalState.js';
+import timer from './modules/timer.js'
 
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
@@ -11,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const modalState = {};
 	 
-  //   const deadline = '2023-02-01';
+const deadline = '2023-02-01';
 
 changeModalState(modalState);
   modals();
@@ -41,7 +42,7 @@ changeModalState(modalState);
 
   forms(modalState);
 
-  //   timer('.container1', deadline);
+    timer('.container1', deadline);
 
   images();
 });
