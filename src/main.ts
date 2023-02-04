@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const modalState = {};
   //   const deadline = '2023-02-01';
 
-  //   changeModalState(modalState);
+    changeModalState(modalState);
   modals();
 
   tabs({

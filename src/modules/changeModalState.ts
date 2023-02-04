@@ -1,11 +1,11 @@
 import checkNumInputs from './checkNumInputs';
 
-const changeModalState = (state) => {
-  const windowForms = document.querySelectorAll('.balcon_icons_img');
-  const windowWidths = document.querySelectorAll('#width');
+const changeModalState = (state: object) => {
+  const windowForms: NodeListOf<Element> = document.querySelectorAll('.balcon_icons_img') as NodeListOf<Element>;
+  const windowWidths= document.querySelectorAll('#width');
   const windowHeights = document.querySelectorAll('#height');
-  const windowTypes = document.querySelectorAll('#view_type');
-  const windowProfiles = document.querySelectorAll('.radioBtn');
+  const windowTypes: NodeListOf<Element> = document.querySelectorAll('#view_type') as NodeListOf<Element>;
+  const windowProfiles: NodeListOf<Element> = document.querySelectorAll('.radioBtn') as NodeListOf<Element>;
 
   checkNumInputs('#width');
   checkNumInputs('#height');
@@ -13,7 +13,7 @@ const changeModalState = (state) => {
   //в какой элемент кликнул пользователь
   const bindActionToElems = (event, elems, prop) => {
     //когда кликаем на изображение, будет подписана форма, которую выбрал пользователь
-    elems.forEach((elem, i) => {
+    elems.forEach((elem:object, i:string) => {
       elem.addEventListener(event, () => {
         switch (elem.nodeName) {
           case 'SPAN':

@@ -44,14 +44,14 @@ const forms = (state: object) => {
 
       //сбор данных из формы
       const formData = new FormData(form);
-      if (form.getAttribute('data-calc') === 'end') {
+      if (form.getAttribute('data-calc') === "end") {
         for (let key in state) {
           formData.append(key, state[key]);
         }
       }
 
       //formData отправляется на сервер
-      postData('assets/server.php', formData)
+      postData('.src/assets/server.php', formData)
         .then((res) => {
           console.log(res);
           statusMessage.textContent = message.succes;
