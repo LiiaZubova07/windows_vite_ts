@@ -1,10 +1,10 @@
-import checkNumInputs from "./checkNumInputs";
+import checkNumInputs from './checkNumInputs';
 
-const forms = (state) => {
-  const forms = document.querySelectorAll('form');
-  const inputs = document.querySelectorAll('input');
+const forms = (state: any) => {
+  const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll('form') as NodeListOf<HTMLFormElement>;
+  const inputs:NodeListOf<HTMLInputElement> = document.querySelectorAll('input') as NodeListOf<HTMLInputElement>;
 
-  checkNumInputs('input[name="user_phone"]'); 
+  checkNumInputs('input[name="user_phone"]');
 
   const message = {
     loading: 'Загрузка...',
@@ -13,8 +13,8 @@ const forms = (state) => {
   };
 
   //запрос на сервер
-  const postData = async (url, data) => {
-    document.querySelector('.status').textContent = message.loading;
+  const postData = async (url: string, data: FormData) => {
+    (document.querySelector('.status') as HTMLElement).textContent = message.loading;
     const res = await fetch(url, {
       method: 'POST',
       body: data,
@@ -32,7 +32,7 @@ const forms = (state) => {
 
   //перебор форм
   forms.forEach((form) => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e:Event) => {
       e.preventDefault();
 
       //форма для сообщений выше
@@ -42,14 +42,14 @@ const forms = (state) => {
 
       //сбор данных из формы
       const formData = new FormData(form);
-		if (form.getAttribute('data-calc') === 'end'){
-			for (let key in state){
-				formData.append(key, state[key]);
-			}
-		}
+      if (form.getAttribute('data-calc') === 'end') {
+        for (let key in state) {
+          formData.append(key, state[key]);
+        }
+      }
 
       //formData отправляется на сервер
-      postData('assets/server.php', formData)
+      postData('.src/assets/server.php', formData)
         .then((res) => {
           console.log(res);
           statusMessage.textContent = message.succes;
