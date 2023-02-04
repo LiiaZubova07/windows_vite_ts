@@ -3,14 +3,14 @@ import modals from './modules/modals';
 import tabs from './modules/tabs';
 import images from './modules/images';
 import forms from './modules/forms';
-
-// import changeModalState from './modules/changeModalState.js';
+import changeModalState from './modules/changeModalState.js';
 
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
     const modalState = {};
+	 
   //   const deadline = '2023-02-01';
 
     changeModalState(modalState);
