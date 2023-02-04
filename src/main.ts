@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   forms(modalState);
 
-  //   timer('.container1', deadline);
+    timer('.container1', deadline);
 
   images();
 });
