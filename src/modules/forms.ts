@@ -1,10 +1,8 @@
 import checkNumInputs from './checkNumInputs';
 
-const forms = (state: object) => {
-  const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll(
-    'form'
-  ) as NodeListOf<HTMLFormElement>;
-  const inputs = document.querySelectorAll('input');
+const forms = (state: any) => {
+  const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll('form') as NodeListOf<HTMLFormElement>;
+  const inputs:NodeListOf<HTMLInputElement> = document.querySelectorAll('input') as NodeListOf<HTMLInputElement>;
 
   checkNumInputs('input[name="user_phone"]');
 
@@ -34,7 +32,7 @@ const forms = (state: object) => {
 
   //перебор форм
   forms.forEach((form) => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e:Event) => {
       e.preventDefault();
 
       //форма для сообщений выше
@@ -44,7 +42,7 @@ const forms = (state: object) => {
 
       //сбор данных из формы
       const formData = new FormData(form);
-      if (form.getAttribute('data-calc') === "end") {
+      if (form.getAttribute('data-calc') === 'end') {
         for (let key in state) {
           formData.append(key, state[key]);
         }
