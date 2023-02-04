@@ -2,17 +2,18 @@ import './modules/slider';
 import modals from './modules/modals';
 import tabs from './modules/tabs';
 import images from './modules/images';
-// import forms from '/modules/forms.js';
+import forms from './modules/forms';
+
 // import changeModalState from './modules/changeModalState.js';
 
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-//   const modalState = {};
-//   const deadline = '2023-02-01';
+    const modalState = {};
+  //   const deadline = '2023-02-01';
 
-//   changeModalState(modalState);
+  //   changeModalState(modalState);
   modals();
 
   tabs({
@@ -34,14 +35,13 @@ window.addEventListener('DOMContentLoaded', () => {
     tabSelector: '.balcon_icons_img',
     contentSelector: '.big_img > img',
     activeClass: 'do_image_more',
-	 display: 'inline-block'
+    display: 'inline-block',
   });
 
-//   forms(modalState);
 
-//   timer('.container1', deadline);
+  forms(modalState);
+
+  //   timer('.container1', deadline);
 
   images();
-
 });
-

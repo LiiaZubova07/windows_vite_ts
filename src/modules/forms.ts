@@ -1,10 +1,12 @@
-import checkNumInputs from "./checkNumInputs";
+import checkNumInputs from './checkNumInputs';
 
-const forms = (state) => {
-  const forms = document.querySelectorAll('form');
+const forms = (state: object) => {
+  const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll(
+    'form'
+  ) as NodeListOf<HTMLFormElement>;
   const inputs = document.querySelectorAll('input');
 
-  checkNumInputs('input[name="user_phone"]'); 
+  checkNumInputs('input[name="user_phone"]');
 
   const message = {
     loading: 'Загрузка...',
@@ -13,8 +15,8 @@ const forms = (state) => {
   };
 
   //запрос на сервер
-  const postData = async (url, data) => {
-    document.querySelector('.status').textContent = message.loading;
+  const postData = async (url: string, data: FormData) => {
+    (document.querySelector('.status') as HTMLElement).textContent = message.loading;
     const res = await fetch(url, {
       method: 'POST',
       body: data,
@@ -42,11 +44,11 @@ const forms = (state) => {
 
       //сбор данных из формы
       const formData = new FormData(form);
-		if (form.getAttribute('data-calc') === 'end'){
-			for (let key in state){
-				formData.append(key, state[key]);
-			}
-		}
+      if (form.getAttribute('data-calc') === 'end') {
+        for (let key in state) {
+          formData.append(key, state[key]);
+        }
+      }
 
       //formData отправляется на сервер
       postData('assets/server.php', formData)
