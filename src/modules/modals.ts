@@ -1,4 +1,4 @@
-//first task
+ //first task
 //чтобы экспортировать код, который здесь есть
 interface IBindModals {
   triggersSelector: string;

@@ -5,15 +5,19 @@ import images from './modules/images';
 import forms from './modules/forms';
 import changeModalState from './modules/changeModalState.js';
 import timer from './modules/timer';
+import {IState} from './modules/changeModalState';
 
 //выполняется тогда, когда ДОМ-структура готова
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  const modalState = {};
+  //состояние окна, где пользователь что-то выбирает
+  const modalState:IState = { form: 0, height: 0, width: 0, type: '', profile: '' };
+
   const deadline = '2023-02-01';
 
   changeModalState(modalState);
+
   modals();
 
   tabs({

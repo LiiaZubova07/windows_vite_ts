@@ -1,39 +1,35 @@
 import checkNumInputs from './checkNumInputs';
 
-const changeModalState = (state: object) => {
-  const windowForms: NodeListOf<Element> = document.querySelectorAll(
-    '.balcon_icons_img'
-  ) as NodeListOf<Element>;
-  const windowWidths: NodeListOf<Element> = document.querySelectorAll(
-    '#width'
-  ) as NodeListOf<Element>;
-  const windowHeights: NodeListOf<Element> = document.querySelectorAll(
-    '#height'
-  ) as NodeListOf<Element>;
-  const windowTypes: NodeListOf<Element> = document.querySelectorAll(
-    '#view_type'
-  ) as NodeListOf<Element>;
-  const windowProfiles: NodeListOf<Element> = document.querySelectorAll(
-    '.radioBtn'
-  ) as NodeListOf<Element>;
+export interface IState{
+	form: number;
+	height: number;
+	width: number;
+	type: string;
+	profile: string;
+}
+
+const changeModalState = (state:IState) => {
+  const windowForms = document.querySelectorAll('.balcon_icons_img') as NodeListOf<HTMLInputElement>;
+  const windowWidths = document.querySelectorAll('#width') as NodeListOf<HTMLInputElement>;
+  const windowHeights = document.querySelectorAll('#height') as NodeListOf<HTMLInputElement>;
+  const windowTypes = document.querySelectorAll('#view_type') as NodeListOf<HTMLInputElement>;
+  const windowProfiles = document.querySelectorAll('.radioBtn') as NodeListOf<HTMLInputElement>;
+
 
   checkNumInputs('#width');
   checkNumInputs('#height');
 
   //в какой элемент кликнул пользователь
-  const bindActionToElems = (event: string, elems: NodeListOf<Element>, prop: string) => {
+  const bindActionToElems = (event: string, elems: NodeListOf<HTMLInputElement>, prop: keyof IState) => {
     //когда кликаем на изображение, будет подписана форма, которую выбрал пользователь
-    elems.forEach((elem: any, i: number) => {
+    elems.forEach((elem: HTMLInputElement, i: number) => {
       elem.addEventListener(event, () => {
         switch (elem.nodeName) {
-          case 'SPAN':
-            state[prop] = i;
+          case 'SPAN': state[prop as 'form'] = i;
             break;
-          case 'INPUT':
-            state[prop] = elem.value;
+          case 'INPUT': state[prop as 'type'] = elem.value;
             break;
-          case 'SELECT':
-            state[prop] = elem.value;
+          case 'SELECT': state[prop as 'profile'] = elem.value;
             break;
         }
         console.log(state);
